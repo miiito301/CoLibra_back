@@ -8,7 +8,10 @@ import reviewRoutes from './routes/reviews.js'
 dotenv.config()
 
 const app = express()
-app.use(cors())
+// 🔽 CORS設定：Vercel本番サイトのURLを許可
+app.use(cors({
+  origin: "https://co-libra-front.vercel.app"
+}))
 app.use(express.json())
 
 // ポート設定（Renderなど環境変数のPORTがなければ3000）
